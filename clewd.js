@@ -289,7 +289,7 @@ const updateParams = res => {
             req.on('end', (async () => {
                 let clewdStream, titleTimer, samePrompt = false, shouldRenew = true, retryRegen = false, imageId = '';
                 try {
-                    const body = JSON.parse(Buffer.concat(buffer).toString());
+                    const body = JSON.parse(Buffer.concat(buffer).toString('utf8'));
                     let {messages, stream: streaming, model: modelName, temperature} = body;
                     temperature = Math.max(.1, Math.min(1, temperature));
                     if (!messages || messages.length < 1) {
