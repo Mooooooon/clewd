@@ -46,7 +46,7 @@ let uuidOrg, curPrompt = {}, prevPrompt = {}, prevMessages = [], prevImpersonate
 ServerResponse.prototype.json = async function(body, statusCode = 200, headers) {
     body = body instanceof Promise ? await body : body;
     this.headersSent || this.writeHead(statusCode, {
-        'Content-Type': 'application/json',
+        'Content-Type': 'application/json; charset=utf-8',
         ...headers && headers
     });
     this.end('object' == typeof body ? JSON.stringify(body) : body);
@@ -308,7 +308,7 @@ const updateParams = res => {
                         });
                     }
                     res.setHeader('Access-Control-Allow-Origin', '*');
-                    streaming && res.setHeader('Content-Type', 'text/event-stream');
+                    streaming && res.setHeader('Content-Type', 'text/event-stream; charset=utf-8');
                     if (!streaming && messages?.[0]?.content?.startsWith('From the list below, choose a word that best represents a character\'s outfit description, action, or emotion in their dialogue')) {
                         return res.json({
                             choices: [ {
