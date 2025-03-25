@@ -25,6 +25,11 @@ Warning: Some accounts are getting _hard-censored_ by the **rats**, you might no
 <h2><a href="https://gitgud.io/ahsk/clewd/-/blob/master/CHANGELOG.md">CHANGELOG</a></h2>
 </div>
 
+## 更新
+
+- 修复了中文乱码问题
+- 想使用代理请修改 start.bat 文件，去掉 "rem" 注释前缀并设置正确的代理 IP 和端口
+
 ## Requirements
 
 - [nodejs>=20.4.*](https://nodejs.org/en/download/current)
